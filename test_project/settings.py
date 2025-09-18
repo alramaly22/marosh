@@ -22,14 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
-STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
-STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY")
-STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET")
+SECRET_KEY = 'django-insecure-8dd%%7^2!-vxrysa!rxps&q=$!*4n6gtaifflild$0hhh3h7@8'
+STRIPE_WEBHOOK_SECRET = "whsec_a8b24ef99c3b233cc362cb4b43e05029044e50a9e7718face5c212bd70b36cba"
+
+STRIPE_SECRET_KEY = "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"
+STRIPE_PUBLISHABLE_KEY = "pk_live_51RaWdcLc3ja42ivySsG5TzMylTwGQqTZPBFp5wUQdOfA0WnkEujYU2u1OlddTjYraPZdxEqLQu7ORhzvcKWBRKui00sdPCYR7m"
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['marosh.vercel.app']  # أو اسم الدومين بتاعك على Vercel
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -80,10 +81,9 @@ WSGI_APPLICATION = 'test_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.environ.get("DATABASE_URL"),
+        default="postgresql://neondb_owner:npg_SVfZqEbLn3x5@ep-icy-term-admxpmjj-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
         conn_max_age=600,
         ssl_require=True
     )
